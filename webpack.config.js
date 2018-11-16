@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
-  entry: './src/app.ts',
+  entry: './src/frontend.tsx',
   output: {
     filename: 'bundle.js'
   },
@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'BitPaca'
+      template: './src/template.html'
     })
   ]
 };
