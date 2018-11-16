@@ -21,12 +21,34 @@ const Top = styled.div`
   font-size: 36px;
 `
 
-const Bottom = styled.div`
+const Middle = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 `
 
+const Bottom = styled.div` 
+  padding: 10px;
+`
+
+const SaveButton = styled.button`
+  background: ${Color.White};
+  padding: 10px;
+  border: 0;
+  display: block;
+  width: 100%;
+  color: ${Color.RedDark};
+  font-weight: bold;
+  font-size: 18px;
+  font-family: ${Font.Secondary};
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.25s;
+
+  :hover{
+    opacity: 0.9;
+  }
+`
 export interface SidebarState {
   activeSection?: string
 }
@@ -50,7 +72,7 @@ class Sidebar extends Component<{}, SidebarState> {
       <Top>
         BitPaca.com
       </Top>
-      <Bottom>
+      <Middle>
         <Section title="Body" {...this.clickHandler('body')}>
           <ConfigurationOption title="Thin body"/>
           <ConfigurationOption title="Thicc body"/>
@@ -77,6 +99,9 @@ class Sidebar extends Component<{}, SidebarState> {
           <ConfigurationOption title="Monokel"/>
           <ConfigurationOption title="'Stache"/>
         </Section>
+      </Middle>
+      <Bottom>
+        <SaveButton>Save</SaveButton>
       </Bottom>
     </SidebarWrapper>
   }

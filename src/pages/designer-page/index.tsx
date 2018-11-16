@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Sidebar from '../../components/sidebar'
 import styled from 'styled-components';
+import Color from '../../components/styles/color';
 
 const PageWrapper = styled.div`
   display: flex;
