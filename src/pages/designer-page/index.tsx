@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Sidebar from '../../components/sidebar'
-import styled from 'styled-components';
-import Color from '../../components/styles/color';
+import styled from 'styled-components'
+import Color from '../../components/styles/color'
+import Toolbar from '../../components/toolbar'
 
 const PageWrapper = styled.div`
   display: flex;
@@ -13,6 +14,9 @@ const SidebarSection = styled.div`
 
 const MainSection = styled.div`
   width: 75%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 `
 class DesignerPage extends Component {
 
@@ -23,6 +27,7 @@ class DesignerPage extends Component {
       </SidebarSection>
       <MainSection>
         <h1>Hello!</h1>
+        <Toolbar/>
       </MainSection>
     </PageWrapper>
   }
