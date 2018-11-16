@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Color from '../styles/color';
 import Section from '../section';
 import Font from '../styles/font';
+import ConfigurationOption from '../configuration-option';
 
 const SidebarWrapper = styled.div`
   display: flex;
@@ -50,11 +51,32 @@ class Sidebar extends Component<{}, SidebarState> {
         BitPaca.com
       </Top>
       <Bottom>
-        <Section title="Body" {...this.clickHandler('body')}></Section>
-        <Section title="Eyes" {...this.clickHandler('eyes')}></Section>
-        <Section title="Ears" {...this.clickHandler('ears')}></Section>
-        <Section title="Clothing" {...this.clickHandler('clothing')}></Section>
-        <Section title="Acessories" {...this.clickHandler('acessories')}></Section>
+        <Section title="Body" {...this.clickHandler('body')}>
+          <ConfigurationOption title="Thin body"/>
+          <ConfigurationOption title="Thicc body"/>
+        </Section>
+        <Section title="Eyes" {...this.clickHandler('eyes')}>
+          <ConfigurationOption title="Lovely eyes"/>
+          <ConfigurationOption title="Even lovelier eyes"/>
+        </Section>
+        <Section title="Ears" {...this.clickHandler('ears')}>
+          <ConfigurationOption title="Stiff ears"/>
+          <ConfigurationOption title="Small ears"/>
+          <ConfigurationOption title="Bunny ears"/>
+          <ConfigurationOption title="Huge ears"/>
+        </Section>
+        <Section title="Clothing" {...this.clickHandler('clothing')}>
+          <ConfigurationOption title="none"/>
+          <ConfigurationOption title="Teddy jacket"/>
+          <ConfigurationOption title="Smoking"/>
+          <ConfigurationOption title="Suit"/>
+          <ConfigurationOption title="Dress"/>
+        </Section>
+        <Section title="Acessories" {...this.clickHandler('acessories')}>
+          <ConfigurationOption title="Glasses"/>
+          <ConfigurationOption title="Monokel"/>
+          <ConfigurationOption title="'Stache"/>
+        </Section>
       </Bottom>
     </SidebarWrapper>
   }

@@ -14,7 +14,8 @@ export interface SectionProps extends ActivateableProps {
 const SectionWrapper = styled.div`
   transition: all 0.25s;
   background: ${(props: ActivateableProps) => props.active ? 'rgba(0,0,0,0.05)' : 'none'};
-  flex-grow: ${(props: ActivateableProps) => props.active ? '1' : ''};
+  flex-grow: ${(props: ActivateableProps) => props.active ? '1' : null};
+  overflow: hidden;
 `
 
 const SectionTitle= styled.div`
@@ -24,8 +25,7 @@ const SectionTitle= styled.div`
 `
 
 const SectionBody = styled.div`
-  padding: 20px;
-  display: ${(props: ActivateableProps) => props.active ? 'block' : 'none'};
+  height: ${(props: ActivateableProps) => props.active ? 'auto' : '0'};
 `
 
 class Section extends Component<SectionProps> {
