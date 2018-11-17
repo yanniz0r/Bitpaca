@@ -13,7 +13,20 @@ module.exports = {
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'ts-loader' },
-      { test: /\.css$/, use: 'raw-loader' }
+      { test: /\.css$/, use: 'raw-loader' },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: true,
+            },
+          },
+        ],
+      }
     ]
   },
   plugins: [

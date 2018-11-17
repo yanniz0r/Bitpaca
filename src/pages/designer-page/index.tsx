@@ -3,6 +3,7 @@ import Sidebar from '../../components/sidebar'
 import styled from 'styled-components'
 import Color from '../../components/styles/color'
 import Toolbar from '../../components/toolbar'
+import DesignPreview from '../../components/design-preview'
 
 const PageWrapper = styled.div`
   display: flex;
@@ -14,8 +15,10 @@ const SidebarSection = styled.div`
 
 const MainSection = styled.div`
   width: 75%;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
-  justify-content: space-between;
+  flex: 1;
   flex-direction: column;
 `
 class DesignerPage extends Component {
@@ -26,7 +29,7 @@ class DesignerPage extends Component {
         <Sidebar/>
       </SidebarSection>
       <MainSection>
-        <h1>Hello!</h1>
+        <DesignPreview/>
         <Toolbar/>
       </MainSection>
     </PageWrapper>
