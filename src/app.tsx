@@ -10,8 +10,6 @@ import * as DesignPositions from './library/design-positions'
 
 const design = new Design()
 
-design.configuration.set(DesignPositions.body, AssetCatalouge.body1)
-
 const App = () => (
   <Provider design={design}>
     <>
