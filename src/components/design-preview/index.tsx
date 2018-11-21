@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { body1, blanket1 } from '../../library/asset-catalouge'
 import Dimension from '../../library/dimension'
 import background from '../../assets/backgrounds/mountains.png'
-
+import { observer } from 'mobx-react'
 
 const DPWrapper = styled.div`
   flex-grow: 1;
@@ -40,8 +40,8 @@ class DesignPreview extends Component {
       asset.getImage().onload = () => {
         this.canvasContext.drawImage(
           asset.getImage(), 
-          asset.getPosition().x, 
-          asset.getPosition().y, 
+          asset.getLocation().x, 
+          asset.getLocation().y, 
           asset.getDimension(canvasDimension).x, 
           asset.getDimension(canvasDimension).y
         )
