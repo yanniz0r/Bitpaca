@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Color from '../styles/color';
-import Section from '../section';
-import Font from '../styles/font';
-import ConfigurationOption from '../configuration-option';
+import Color from '../styles/color'
+import Section from '../section'
+import Font from '../styles/font'
+import ConfigurationOption from '../configuration-option'
+import { observer, inject } from 'mobx-react'
+import Design from '../../models/design'
+import * as AssetCatalouge from '../../library/asset-catalouge'
 
 const SidebarWrapper = styled.div`
   display: flex;
@@ -53,7 +56,13 @@ export interface SidebarState {
   activeSection?: string
 }
 
-class Sidebar extends Component<{}, SidebarState> {
+export interface SidebarProps {
+  design?: Design
+}
+
+@inject('design')
+@observer
+class Sidebar extends Component<SidebarProps, SidebarState> {
 
   public state: SidebarState = {
 
@@ -95,7 +104,7 @@ class Sidebar extends Component<{}, SidebarState> {
           <ConfigurationOption title="Dress"/>
         </Section>
         <Section title="Acessories" {...this.clickHandler('acessories')}>
-          <ConfigurationOption title="Glasses"/>
+          <ConfigurationOption asset={AssetCatalouge.blanket1} title="Blanket"/>
           <ConfigurationOption title="Monokel"/>
           <ConfigurationOption title="'Stache"/>
         </Section>
