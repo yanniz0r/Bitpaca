@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import Sidebar from '../../components/sidebar'
 import styled from 'styled-components'
-import Color from '../../components/styles/color'
 import Toolbar from '../../components/toolbar'
 import DesignPreview from '../../components/design-preview'
+import DesignTree from '../../components/design-tree'
 
 const PageWrapper = styled.div`
   display: flex;
 `
 
 const SidebarSection = styled.div`
-  width: 25%;
+  width: 20%;
 `
 
 const MainSection = styled.div`
@@ -32,6 +32,9 @@ class DesignerPage extends Component {
         <DesignPreview/>
         <Toolbar/>
       </MainSection>
+      <SidebarSection>
+        <DesignTree/>
+      </SidebarSection>
     </PageWrapper>
   }
 
