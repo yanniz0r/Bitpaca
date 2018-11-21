@@ -22,6 +22,24 @@ class Design {
   }
 
   @computed
+  public get loading() {
+    let loading = false
+    this.configuration.forEach(function(asset) {
+      loading = loading || asset.loading
+    })
+    return loading
+  }
+
+  @computed
+  public get assets() {
+    const assets: Asset[] = []
+    this.configuration.forEach((asset) => {
+      assets.push(asset)
+    })
+    return assets
+  }
+
+  @computed
   public get length() {
     let length = 0
     this.configuration.forEach(() => {
