@@ -83,7 +83,7 @@ class Sidebar extends Component<SidebarProps, SidebarState> {
       </Top>
       <Middle>
         <Section title="Body" {...this.clickHandler('body')}>
-          <ConfigurationOption title="Thin body"/>
+          <ConfigurationOption asset={AssetCatalouge.body1} title="Thin body"/>
           <ConfigurationOption title="Thicc body"/>
         </Section>
         <Section title="Eyes" {...this.clickHandler('eyes')}>
@@ -105,7 +105,7 @@ class Sidebar extends Component<SidebarProps, SidebarState> {
         </Section>
         <Section title="Acessories" {...this.clickHandler('acessories')}>
           <ConfigurationOption asset={AssetCatalouge.blanket1} title="Blanket"/>
-          <ConfigurationOption title="Monokel"/>
+          <ConfigurationOption asset={AssetCatalouge.garland1} title="Garland"/>
           <ConfigurationOption title="'Stache"/>
         </Section>
       </Middle>
