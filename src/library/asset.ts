@@ -1,5 +1,6 @@
 import Dimension from './dimension'
 import DesignPosition from './design-position'
+import { observable, action, runInAction } from 'mobx';
 
 class Asset {
 
@@ -9,15 +10,22 @@ class Asset {
   private location: Dimension
   private position: DesignPosition
 
+  @observable
+  public loading: boolean = true
+
   constructor(path: string, dimension: Dimension, location: Dimension, position: DesignPosition) {
     this.imagePath = require(`../assets/alpaca/${path}`)
     this.image.src = this.imagePath
+    this.image.onload = this.onImageLoad
     this.dimension = dimension
     this.location = location
     this.position = position
   }
 
-  public onImageLoad = (fn: () => void) => this.image.onload = fn
+  @action
+  public onImageLoad() {
+    this.loading = false
+  }
 
   public getImagePath = () => this.imagePath
 
