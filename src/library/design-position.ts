@@ -3,12 +3,12 @@ import { observable } from 'mobx'
 class DesignPosition {
 
   @observable
-  public location: String
+  public location: string
 
   @observable
   public allowEmpty: boolean
 
-  constructor(location: String, allowEmpty: boolean = true) {
+  constructor(location: string, allowEmpty: boolean = true) {
     this.location = location
     this.allowEmpty = allowEmpty
   }
