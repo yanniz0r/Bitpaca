@@ -39,21 +39,16 @@ export interface DesignTreeProps {
 @observer
 class DesignTree extends Component<DesignTreeProps> {
 
-  @computed
-  private get attributes() {
-    const attributes: any[] = []
-    this.props.design.configuration.forEach((asset, position) => {
-      attributes.push(<DesignAttribute key={position.location} onClick={ () => this.props.design.clearPosition(position) }>
-        <Key>{ position.location }</Key>
-        <Value>{  asset.getImagePath() }</Value>
-      </DesignAttribute>)
-    })
-    return attributes
-  }
-
   public render() {
+    const { design } = this.props
     return <DesignTreeWrapper>
-        { this.attributes }
+        { design.assets.map(asset => (
+          <DesignAttribute key={asset.getPosition().location} onClick={ () => design.clearPosition(asset.getPosition()) }>
+            <Key>{ asset.getPosition().location }</Key>
+            <Value>{  asset.getImagePath() }</Value>
+          </DesignAttribute>)
+          )
+        }
       </DesignTreeWrapper>
   }
 
