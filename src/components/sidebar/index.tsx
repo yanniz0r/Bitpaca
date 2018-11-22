@@ -84,7 +84,7 @@ class Sidebar extends Component<SidebarProps, SidebarState> {
       <Middle>
         <Section title="Body" {...this.clickHandler('body')}>
           <ConfigurationOption asset={AssetCatalouge.body1} title="Thin body"/>
-          <ConfigurationOption title="Thicc body"/>
+          <ConfigurationOption asset={AssetCatalouge.body2} title="Thicc body"/>
         </Section>
         <Section title="Eyes" {...this.clickHandler('eyes')}>
           <ConfigurationOption title="Lovely eyes"/>
