@@ -23,11 +23,11 @@ const COWrapper = styled.a`
   align-items: center;
   cursor: pointer;
 
-  img {
+  div {
     border-color: ${(props: COWrapperProps) => props.selected ? Color.White : 'transparent'};
   }
 
-  :hover img {
+  :hover div {
     border-color: ${Color.TurquoiseLight};
   }
 `
@@ -37,12 +37,21 @@ const Title = styled.span`
   margin-left: 10px;
 `
 
-const Preview = styled.img`
+export interface PreviewProps {
+  src?: string
+}
+
+const Preview = styled.div`
   height: 60px;
   width: 60px;
   border-radius: 10px;
   border: solid 3px transparent;
   transition: all 0.2s;
+  background-color: ${Color.RedDark};
+  background-image: url("${(props: PreviewProps) => props.src}");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
 `
 
 @inject('design')
@@ -74,9 +83,9 @@ class ConfigurationOption extends Component<ConfigurationOptionProps> {
   }
 
   public render() {
-    const { title } = this.props
+    const { title, asset } = this.props
     return <COWrapper onClick={this.onClick} selected={this.selected}>
-      <Preview src="https://www.rivet-expert.com/wp-content/uploads/2018/03/Placeholder.png"/>
+      <Preview src={asset && asset.getImagePath()}/>
       <Title>{ title }</Title>
     </COWrapper>
   }
