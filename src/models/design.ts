@@ -21,6 +21,13 @@ class Design {
     return this.configuration.get(asset.getPosition()) === asset
   }
 
+  @action
+  public reset() {
+    this.configuration.forEach((_, position) => {
+      this.configuration.delete(position)
+    })
+  }
+
   @computed
   public get loading() {
     let loading = false

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Color from '../styles/color'
+import { inject } from 'mobx-react'
+import Design from '../../models/design'
 
 const ToolbarWrapper = styled.div`
   background: ${Color.GreyDark};
@@ -30,11 +32,21 @@ const Seperator = styled.div`
   margin: 0 10px;
 `
 
-class Toolbar extends Component {
+export interface ToolbarProps {
+  design?: Design
+}
+
+@inject('design')
+class Toolbar extends Component<ToolbarProps> {
+
+  reset = () => {
+    const { design } = this.props
+    design.reset()
+  }
 
   render = () => {
     return <ToolbarWrapper>
-        <ToolbarAction>Reset</ToolbarAction>
+        <ToolbarAction onClick={this.reset}>Reset</ToolbarAction>
         <Seperator/>
         <ToolbarAction>🏞</ToolbarAction>
         <ToolbarAction>🌅</ToolbarAction>
